@@ -9,8 +9,6 @@ function displayFoods() {
     fetch(fetchUrl)
         .then(res => res.json())
         .then(data => data.forEach((newData) => {
-            console.log(newData.name)
-
+            return console.log(newData.q)
         }))
 }
-console.log(displayFoods)
