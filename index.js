@@ -1,14 +1,24 @@
 
 path = 'https://api.edamam.com/search'
-const app_key = '4965fdc1aac73e6ce40c7d70ef661d48'
+const APP_key = '4965fdc1aac73e6ce40c7d70ef661d48'
 
-const app_id = '0a0479e6'
-const urlLink = 'https://api.edamam.com/search?&app_id=0a0479e6&app_key=4965fdc1aac73e6ce40c7d70ef661d48&q=pizza'
-const fetchUrl = "https://api.edamam.com/search?&app_id=0a0479e6&app_key=4965fdc1aac73e6ce40c7d70ef661d48&q=pizza"
-function displayFoods() {
-    fetch(fetchUrl)
-        .then(res => res.json())
-        .then(data => data.forEach((newData) => {
-            return console.log(newData.q)
-        }))
+const APP_ID = '0a0479e6'
+
+const searchForm = document.querySelector('form');
+const searchResultDiv = document.querySelector('#meal');
+const container = document.querySelector('.container')
+let searchQuery = '';
+
+searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    searchQuery = e.target.querySelector('input').value;
+    //console.log(searchQuery)
+    fetchAPI();
+})
+async function fetchAPI() {
+    const fetchUrl = `https://api.edamam.com/search?q=pizza& app_id=${APP_ID}& app_key=${APP_key}`;
+    const response = await fetch(fetchUrl)
+    // console.log(response);
+    const data = await response.json()
+    console.log(data)
 }
