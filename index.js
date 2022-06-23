@@ -12,11 +12,11 @@ let searchQuery = '';
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     searchQuery = e.target.querySelector('input').value;
-    //console.log(searchQuery)
+    // console.log(searchQuery)
     fetchAPI();
 })
 async function fetchAPI() {
-    const fetchUrl = `https://api.edamam.com/search?q=pizza& app_id=${APP_ID}& app_key=${APP_key}`;
+    const fetchUrl = `https://api.edamam.com/search?q=${searchQuery}& app_id=${APP_ID}& app_key=${APP_key}`;
     const response = await fetch(fetchUrl)
     // console.log(response);
     const data = await response.json()
@@ -24,15 +24,20 @@ async function fetchAPI() {
     console.log(data)
 }
 function generateHTML(results) {
-    const generatedhtml = ' '
-    results.map(results => {
+    let generatedhtml = ' '
+    results.map(result => {
         generatedhtml +=
             `
-
-
-
-
-
-`
+            <div class="item">
+            <img src="${result.recipe.image}" class= "meal-img" alt="food">
+                <div class="flex-container">
+             <!-- meal-name-->
+                 <h3> ${result.recipe.label}</h3>
+                   <a href="${result.recipe.url}" target="_blank" class="recipe link"> Click for recipe</a>
+           </div> 
+        <p class="item-data">Cuisine-type:${result.recipe.cuisineType}</p>
+            </div>  
+            `
     })
+    searchResultDiv.innerHTML = generatedhtml;
 }
