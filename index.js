@@ -11,6 +11,10 @@ const Form = document.querySelector('form');
 const searchResultDiv = document.querySelector('.results');
 const container = document.querySelector('.grid-container')
 let searchQuery = '';
+//like btn
+let likeicon = document.querySelector('#icon');
+let count = document.querySelector('.count');
+let Btn = document.querySelector('.btn-class')
 
 Form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -22,15 +26,15 @@ async function fetchAPI() {
     const fetchurl = `https://api.edamam.com/search?q=${searchQuery}& app_id=${APP_ID}& app_key=${APP_key}`
     let response = await fetch(fetchurl);
     let data = await response.json();
-    generateHTML(data.hits)
+    fetchHTML(data.hits)
     console.log(data)
 }
 
-function generateHTML(output) {
-    let generatedhtml = ' '
+function fetchHTML(output) {
+    let fetchedhtml = ' '
     output.map(result => {
-        generatedhtml +=
-            `<div class="item">
+        fetchedhtml +=
+            `<div class="items">
             <img src="${result.recipe.image}" class= "meal-img" alt="food">
                 <div class="flex-container">
                  <h3> ${result.recipe.label}</h3>
@@ -40,29 +44,30 @@ function generateHTML(output) {
         <button class="btn-class"> 
                   <span id="icon">
                   <i class="fa-solid fa-thumbs-up"></i></span>
-                   <span id="count"> 0 </span> Like
+                   <span class="count"> 0 </span> Like
                 </button>
             </div>  
       `
 
     })
-    searchResultDiv.innerHTML = generatedhtml;
-
-    let likeIcon = document.querySelector('#icon');
-    let count = document.querySelector('#count');
-    let clicked = false;
-
-    document.getElementsByClassName('like-btn').addEventListener("click", () => {
-        if (!clicked) {
-            clicked = true;
-            likeIcon.innerHTML = `<i class="fa-solid fa-thumbs-up"></i>`
-            count.textContent++;
-        }
-        else {
-            clicked = false;
-            likeIcon.innerHTML = `<i class="fa-solid fa-thumbs-up"></i>`
-        }
-    })
-
+    searchResultDiv.innerHTML = fetchedhtml;
 }
+
+
+
+
+let clicked = false;
+
+Btn.addEventListener('click', () => {
+    if (!clicked) {
+        clicked = true;
+        likeicon.innerHTML = `<i class="fa-solid fa-thumbs-up"></i>`
+        count.textContent++;
+    }
+    else {
+        clicked = false;
+        likeicon.innerHTML = `<i class="fa-solid fa-thumbs-up"></i>`
+    }
+})
+
 

@@ -27,6 +27,16 @@ img{
     margin-bottom: auto;*/
 
 }
+.btn-class{
+    padding:10px 15px;
+    background:blue;
+    font-size: 10px;
+    border:none;
+    color:#e8efff;
+    border-radius:5px;
+    cursor:pointer
+
+}
 
 section{
   min-height:100vh ;
@@ -81,7 +91,7 @@ font-size: 1rem;
     
 }
 
- .item{
+ .items{
     border-radius:8px;
     overflow: hidden;
     margin:2rem 0;
@@ -91,7 +101,7 @@ font-size: 1rem;
 
 }
 
-.item-name,.recipe link{
+.items-name,.recipe link{
     font-size: 1.4rem;
     text-align: center;
     padding: 1.5rem;
