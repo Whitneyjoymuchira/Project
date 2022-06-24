@@ -11,6 +11,15 @@ body{
     font-family: 'Nunito', sans-serif;
     font-weight: 200;
 }
+.wrapper{
+    margin:200px 15%;
+    width:70%;
+    height:200px;
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 2fr;
+    background:pink ;
+    bo
+}
 #search {
     background-color:pink;
     cursor: pointer;
