@@ -9,7 +9,7 @@ const APP_ID = '0a0479e6'
 
 const Form = document.querySelector('form');
 const searchResultDiv = document.querySelector('.results');
-const container = document.querySelector('.container')
+const container = document.querySelector('.grid-container')
 let searchQuery = '';
 
 Form.addEventListener('submit', (e) => {
@@ -33,7 +33,7 @@ function generateHTML(results) {
             `
             <div class="item">
             <img src="${result.recipe.image}" class= "meal-img" alt="food">
-                <div class="flex-container">
+                <div class=" grid-flex-container">
              <!-- meal-name-->
                  <h3> ${result.recipe.label}</h3>
                    <a href="${result.recipe.url}" target="_blank" class="recipe link"> Click for recipe</a>
