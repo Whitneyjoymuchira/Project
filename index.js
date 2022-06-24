@@ -34,12 +34,35 @@ function generateHTML(output) {
             <img src="${result.recipe.image}" class= "meal-img" alt="food">
                 <div class="flex-container">
                  <h3> ${result.recipe.label}</h3>
-                   <a href="${result.recipe.url}" target="_blank" class="recipe link"> REcipe Link</a>
+                   <a href="${result.recipe.url}" target="_blank" class="recipe link"> Recipe Link </a>
            </div> 
         <p class="item-data">Cuisine-type:${result.recipe.cuisineType}</p>
+        <button class="btn-class"> 
+                  <span id="icon">
+                  <i class="fa-solid fa-thumbs-up"></i></span>
+                   <span id="count"> 0 </span> Like
+                </button>
             </div>  
-            
-            `
+      `
+
     })
     searchResultDiv.innerHTML = generatedhtml;
+
+    let likeIcon = document.querySelector('#icon');
+    let count = document.querySelector('#count');
+    let clicked = false;
+
+    document.getElementsByClassName('like-btn').addEventListener("click", () => {
+        if (!clicked) {
+            clicked = true;
+            likeIcon.innerHTML = `<i class="fa-solid fa-thumbs-up"></i>`
+            count.textContent++;
+        }
+        else {
+            clicked = false;
+            likeIcon.innerHTML = `<i class="fa-solid fa-thumbs-up"></i>`
+        }
+    })
+
 }
+
