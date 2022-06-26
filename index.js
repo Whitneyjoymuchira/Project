@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetchAPI()
+    response()
+
 })
 
 path = 'https://api.edamam.com/search'
@@ -12,10 +14,6 @@ const searchResultDiv = document.querySelector('.results');
 const container = document.querySelector('.grid-container')
 let searchQuery = '';
 //like btn
-let likeicon = document.querySelector('#icon');
-count = document.querySelector('.count');
-let likeButton = document.querySelector('.btn-class')
-
 
 
 Form.addEventListener('submit', (e) => {
@@ -43,38 +41,86 @@ function fetchHTML(output) {
                    <a href="${result.recipe.url}" target="_blank" class="recipe link"> Recipe Link </a>
            </div> 
         <p class="item-data">Cuisine-type:${result.recipe.cuisineType}</p>
-        <button class="btn-class"> 
-        <span id="icon">
-          <i class="fa-solid fa-thumbs-up"></i></span>
-        <span class="count"> 0 </span> Like
-      </button>
+        <div class="container">
+                  <div class="star-widget">
+                    <input type="radio" name="rate" id="rate-5"> 
+                    <label for="rate-5" class="fas fa-star"></label>
+                    <input type="radio" name="rate" id="rate-4">
+                    <label for="rate-4" class="fas fa-star"> </label>
+                    <input type="radio" name="rate" id="rate-3">
+                    <label for="rate-3" class="fas fa-star"></label>
+                    <input type="radio" name="rate" id="rate-2">
+                    <label for="rate-2" class="fas fa-star"></label>
+                    <input type="radio" name="rate" id="rate-1">
+                    <label for="rate-1"class="fas fa-star"></label>
+
+
+                  </div>
+                </div>
             </div>  
+            
       `
+
+
 
     })
     searchResultDiv.innerHTML = fetchedhtml;
 }
 
 
+let Star=document.querySelector(".star-widget")
+function response(){
+Star.addEventListener("click", () => {
+    alert('Thank you!')
+}
+)}
 
 
-let clicked = false;
+/*
 
-likeButton.addEventListener('click', () => {
-    if (!clicked) {
+document.addEventListener("click", (e) => {
+    if (e.target.id === "like__btn") {
+        // console.log("hello")
+
+        // if (!clicked) 
+
         clicked = true;
-        likeicon.innerHTML = `<i class="fa-solid fa-thumbs-up"></i>`;
-        count.textContent++;
+        //document.style.color.red;
+        console.log("I am clicked")
+        console.log(likeBtn)
+        //likeBtn.style.backgroundColor = "green"
+        likeBtn.classList.add = "change"
+
     }
-    else {
-        clicked = false;
-        likeicon.innerHTML = `<i class="far fa-thumbs-up"></i>`;
-        count.textContent--;
-    }
+}
+)
+function addLike() {
+    likeBtn.addEventListener("click", () => {
+        console.log("likeBtn")
+    })
+
+}*/
 
 
 
-})
+
+
+
+
+/*console.log('Hello')
+ if (!clicked) {
+     clicked = true;
+     likeicon.innerHTML = `<i class="far fa-thumbs-up"></i>`;
+     document.style.color.red;
+     like__btn.style.background = "red"
+ } else {
+     clicked = false;
+     likeicon.innerHTML = `<i class="far fa-thumbs-up"></i>`;
+     likeicon.color.blue;
+ }*/
+
+
+
 
 
 
