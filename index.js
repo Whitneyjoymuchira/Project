@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetchAPI()
     response()
+    
 
 })
 
@@ -58,9 +59,8 @@ function fetchHTML(output) {
                   </div>
                 </div>
             </div>  
-            
-      `
-
+           ` 
+      
 
 
     })
@@ -68,12 +68,13 @@ function fetchHTML(output) {
 }
 
 
-let Star=document.querySelector(".star-widget")
-function response(){
-Star.addEventListener("click", () => {
-    alert('Thank you!')
+let Star = document.querySelector(".star-widget")
+function response() {
+    Star.addEventListener("click", () => {
+        alert('Thank you!')
+    }
+    )
 }
-)}
 
 
 /*
