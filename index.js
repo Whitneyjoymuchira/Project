@@ -13,8 +13,10 @@ const container = document.querySelector('.grid-container')
 let searchQuery = '';
 //like btn
 let likeicon = document.querySelector('#icon');
-let count = document.querySelector('.count');
-let Btn = document.querySelector('.btn-class')
+count = document.querySelector('.count');
+let likeButton = document.querySelector('.btn-class')
+
+
 
 Form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -42,10 +44,10 @@ function fetchHTML(output) {
            </div> 
         <p class="item-data">Cuisine-type:${result.recipe.cuisineType}</p>
         <button class="btn-class"> 
-                  <span id="icon">
-                  <i class="fa-solid fa-thumbs-up"></i></span>
-                   <span class="count"> 0 </span> Like
-                </button>
+        <span id="icon">
+          <i class="fa-solid fa-thumbs-up"></i></span>
+        <span class="count"> 0 </span> Like
+      </button>
             </div>  
       `
 
@@ -58,16 +60,21 @@ function fetchHTML(output) {
 
 let clicked = false;
 
-Btn.addEventListener('click', () => {
+likeButton.addEventListener('click', () => {
     if (!clicked) {
         clicked = true;
-        likeicon.innerHTML = `<i class="fa-solid fa-thumbs-up"></i>`
+        likeicon.innerHTML = `<i class="fa-solid fa-thumbs-up"></i>`;
         count.textContent++;
     }
     else {
         clicked = false;
-        likeicon.innerHTML = `<i class="fa-solid fa-thumbs-up"></i>`
+        likeicon.innerHTML = `<i class="far fa-thumbs-up"></i>`;
+        count.textContent--;
     }
+
+
+
 })
+
 
 
