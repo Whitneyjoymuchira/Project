@@ -9,9 +9,10 @@ JAVASCRIPT
 
 #### HOW TO USE THE APP
 
+https://whitneyjoymuchira.github.io/Project/ -link to the app
 
-
-
+![Screenshot]src/Screenshot from 2022-06-27 00-41-41.png
+Simply tyoe up anyfood item and it returns a myriad of recipes to choose from.
 
 ## CHALLENGES EXPERIENCED
 Being fairly novice in  practical JS skills, it took me quite the minute to bring my ideas of the practability to life, but that only made me more encouraged as i embraced the challenge.
