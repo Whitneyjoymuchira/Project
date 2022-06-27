@@ -60,9 +60,6 @@ function fetchHTML(output) {
                 </div>
             </div>  
            ` 
-      
-
-
     })
     searchResultDiv.innerHTML = fetchedhtml;
 }
@@ -70,9 +67,8 @@ function fetchHTML(output) {
 
 let Star = document.querySelector(".star-widget")
 function response() {
-    Star.addEventListener("click", () => {
-        alert('Thank you!')
-    }
+  Star.addEventListener("click", () => {
+    alert('Thank you!')}
     )
 }
 
