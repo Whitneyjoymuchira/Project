@@ -12,11 +12,25 @@ body{
     font-weight: 200;
     background: whitesmoke;
 }
+#header{
+    text-align: left;
+    
+}
 
 
 #search {
     background-color:pink;
     cursor: pointer;
+}
+#header-image{
+    width:350px;
+    height:100px;
+    position: center;
+    margin-top:1rem ;
+}
+#image-sizing{
+    display:flex;
+    justify-content: center;
 }
 img{
     width:100%;
